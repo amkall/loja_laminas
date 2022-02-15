@@ -82,5 +82,4 @@ class Pessoa{
     public function setRua($rua){
         $this->rua = $rua;
     }
-
 }
