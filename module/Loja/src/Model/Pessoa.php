@@ -1,6 +1,6 @@
 <?php
 
-namespace Pessoa\Model;
+namespace Loja\Model;
 
 class Pessoa{
 

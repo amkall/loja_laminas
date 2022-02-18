@@ -1,6 +1,6 @@
 <?php
 
-use namespace Venda\Model;
+use namespace Loja\Model;
 
 class Venda{
     ]
