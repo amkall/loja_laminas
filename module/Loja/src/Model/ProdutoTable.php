@@ -37,7 +37,13 @@ class ProdutoTable
     public function saveProduto(Produto $produto)
     {
         $data = [
-
+            'ID_PRODUTO'  => $produto->id_produto;
+            'NOME'        => $produto->nome;
+            'IMAGEM'      => $produto->imagem;
+            'VALIDADE'    => $produto->validade;
+            'QTD_ESTOQUE' => $produto->qtd_estoque;
+            'CUSTO'       => $produto->custo;
+            'PRECO'       => $produto->preco;    
         ];
 
         $id_produto = (int) $produto->id_produto;
