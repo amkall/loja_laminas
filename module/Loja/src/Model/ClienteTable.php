@@ -1,5 +1,5 @@
 <?php
-namespace Album\Model;
+namespace Loja\Model;
 
 use RuntimeExeption;
 use Laminas\Db\TableGateway\TableGatewayInterface;
@@ -63,5 +63,8 @@ class ClienteTable{
         }
 
         $this->tableGateway->update($data, ['ID_CLIENTE' => $id_cliente]);
+    }
+    public function deleteCliente($id_cliente){
+        $this->tableGateway->delete(['ID_CLIENTE' => (int) $id_cliente]);
     }
 }

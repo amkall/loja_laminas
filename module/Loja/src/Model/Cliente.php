@@ -1,5 +1,5 @@
 <?php
-namespace Cliente\Model;
+namespace Loja\Model;
 
 class Cliente extends Pessoa{
 

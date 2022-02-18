@@ -1,12 +1,14 @@
 <?php
 
-use namespace Funcionario\Model;
+namespace Loja\Model;
 
 class Funcionario extends Pessoa{
 
     private $id_funcionario;
     private $login;
     private $senha;
+    private $situacao;
+    private $acesso;
 
     public function exchangeArray(array $data){
         super($data);
@@ -14,6 +16,8 @@ class Funcionario extends Pessoa{
         $this->id_funcionario = !empty($data['id_funcionario']) ? $data['id_funcionario'] : null;
         $this->login          = !empty($data['login'])          ? $data['login']          : null;
         $this->senha          = !empty($data['senha'])          ? $data['senha']          : null;
+        $this->situacao       = !empty($data['situacao'])       ? $data['situacao']       : null;
+        $this->acesso         = !empty($data['acesso'])         ? $data['acesso']         : null;
     }
 
     /**
@@ -72,6 +76,46 @@ class Funcionario extends Pessoa{
     public function setSenha($senha)
     {
         $this->senha = $senha;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of situacao
+     */ 
+    public function getSituacao()
+    {
+        return $this->situacao;
+    }
+
+    /**
+     * Set the value of situacao
+     *
+     * @return  self
+     */ 
+    public function setSituacao($situacao)
+    {
+        $this->situacao = $situacao;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of acesso
+     */ 
+    public function getAcesso()
+    {
+        return $this->acesso;
+    }
+
+    /**
+     * Set the value of acesso
+     *
+     * @return  self
+     */ 
+    public function setAcesso($acesso)
+    {
+        $this->acesso = $acesso;
 
         return $this;
     }
