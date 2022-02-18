@@ -53,7 +53,7 @@ Class FuncionarioTable{
         }
 
         try {
-            $this->getAlbum($id_funcionario);
+            $this->getFuncionario($id_funcionario);
         } catch (RuntimeException $e) {
             throw new RuntimeException(sprintf(
                 'Cannot update funcionario with identifier %d; does not exist',
