@@ -56,7 +56,7 @@ Class FuncionarioTable{
             $this->getAlbum($id_funcionario);
         } catch (RuntimeException $e) {
             throw new RuntimeException(sprintf(
-                'Cannot update album with identifier %d; does not exist',
+                'Cannot update funcionario with identifier %d; does not exist',
                 $id_funcionario
             ));
         }
