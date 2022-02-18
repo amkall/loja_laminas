@@ -18,16 +18,16 @@ class ClienteTable{
         return $this->tableGateway->select();
     }
 
-    public function getCliente($id){
+    public function getCliente($id_cliente){
 
-        $id     = (int) $id;
-        $rowset = this->tableGateway->select(['ID_CLIENTE' => $id]);
+        $id_cliente     = (int) $id_cliente;
+        $rowset = this->tableGateway->select(['ID_CLIENTE' => $id_cliente]);
         $row    = $rowset->current();
 
         if(! $row){
             throw new RuntimeException(sprintf(
                 'Could not find row with identifier %d',
-                $id
+                $id_cliente
             ));
         }
 
@@ -38,12 +38,12 @@ class ClienteTable{
     public function saveCliente(Cliente $cliente){
         
         $data = [
-            'ID_CLIENTE' => $cliente->id_cliente;
-            'LOGIN'      => $cliente->login;
-            'SENHA'      => $cliente->senha;
+            'ID_CLIENTE' => $cliente->getId_cliente();
+            'LOGIN'      => $cliente->getLogin();
+            'SENHA'      => $cliente->getSenha();
         ];
 
-        $id_cliente = (int) $cliente->id_cliente;
+        $id_cliente = (int) $cliente->getId_cliente();
         
         // id_cliente nao e passado, se for uma atualização nao entra
         

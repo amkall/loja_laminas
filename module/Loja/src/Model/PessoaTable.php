@@ -37,17 +37,17 @@ class PessoaTable
     public function savePessoa(Pessoa $pessoa)
     {
         $data = [
-            'ID_PESSOA' =>  $pessoa->id_pessoa;
-            'CPF'       =>  $pessoa->cpf;
-            'NOME'      =>  $pessoa->nome;
-            'TELEFONE'  =>  $pessoa->telefone;
-            'EMAIL'     =>  $pessoa->email;
-            'CIDADE'    =>  $pessoa->cidade;
-            'BAIRRO'    =>  $pessoa->bairro;
-            'RUA'       =>  $pessoa->rua;
+            'ID_PESSOA' =>  $pessoa->getId_pessoa();
+            'CPF'       =>  $pessoa->getCpf();
+            'NOME'      =>  $pessoa->getNome();
+            'TELEFONE'  =>  $pessoa->getTelefone();
+            'EMAIL'     =>  $pessoa->getEmail();
+            'CIDADE'    =>  $pessoa->getCidade();
+            'BAIRRO'    =>  $pessoa->getBairro();
+            'RUA'       =>  $pessoa->getRua();
         ];
 
-        $id_pessoa = (int) $pessoa->id_pessoa;
+        $id_pessoa = (int) $pessoa->getId_pessoa();
 
         if ($id_pessoa === 0) {
             $this->tableGateway->insert($data);

@@ -37,16 +37,16 @@ class ProdutoTable
     public function saveProduto(Produto $produto)
     {
         $data = [
-            'ID_PRODUTO'  => $produto->id_produto;
-            'NOME'        => $produto->nome;
-            'IMAGEM'      => $produto->imagem;
-            'VALIDADE'    => $produto->validade;
-            'QTD_ESTOQUE' => $produto->qtd_estoque;
-            'CUSTO'       => $produto->custo;
-            'PRECO'       => $produto->preco;    
+            'ID_PRODUTO'  => $produto->getId_produto();
+            'NOME'        => $produto->getNome();
+            'IMAGEM'      => $produto->getImagem();
+            'VALIDADE'    => $produto->getValidade();
+            'QTD_ESTOQUE' => $produto->getQtd_estoque();
+            'CUSTO'       => $produto->getCusto();
+            'PRECO'       => $produto->getPreco();    
         ];
 
-        $id_produto = (int) $produto->id_produto;
+        $id_produto = (int) $produto->getId_produto();
 
         if ($id_produto === 0) {
             $this->tableGateway->insert($data);
