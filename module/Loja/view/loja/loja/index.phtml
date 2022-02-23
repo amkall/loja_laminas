@@ -1,12 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello word</h1>
-</body>
-</html>
+<?php
+// module/pessoa/view/pessoa/pessoa/index.phtml:
+
+$title = 'My pessoas';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('pessoa', ['action' => 'add']) ?>">Add new pessoa</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($pessoas as $pessoa) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($pessoa->title) ?></td>
+        <td><?= $this->escapeHtml($pessoa->artist) ?></td>
+        <td>
+            <a href="<?= $this->url('pessoa', ['action' => 'edit', 'id' => $pessoa->id]) ?>">Edit</a>
+            <a href="<?= $this->url('pessoa', ['action' => 'delete', 'id' => $pessoa->id]) ?>">Delete</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>
