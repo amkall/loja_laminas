@@ -37,12 +37,12 @@ Class FuncionarioTable{
     public function saveFuncionario(Funcionario $funcionario){
         
         $data = [
-            'ID_FUNCIONARIO'  => $funcionario->getId_funcionario();
-            'LOGIN'           => $funcionario->getLogin();
-            'SENHA'           => $funcionario->getSenha();
-            'SITUACAO'        => $funcionario->getSituacao();
-            'ACESSO'          => $funcionario->getAcesso();
-        ]
+            'ID_FUNCIONARIO'  => $funcionario->getId_funcionario(),
+            'LOGIN'           => $funcionario->getLogin(),
+            'SENHA'           => $funcionario->getSenha(),
+            'SITUACAO'        => $funcionario->getSituacao(),
+            'ACESSO'          => $funcionario->getAcesso(),
+        ];
 
         $id_funcionario = (int) $funcionario->getId_funcionario();
 

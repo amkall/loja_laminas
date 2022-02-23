@@ -12,7 +12,7 @@ class LojaController extends AbstractActionController
     private $produto;
     private $venda;
 
-    public function indexAction(PessoaTable $pessoa, FuncionarioTable $funcionario, ClienteTable $cliente, ProdutoTable $produto, VendaTable $venda){
+    public function __construct(PessoaTable $pessoa, FuncionarioTable $funcionario, ClienteTable $cliente, ProdutoTable $produto, VendaTable $venda){
 
         $this->pessoa      = $pessoa;
         $this->funcionario = $funcionario;
@@ -20,5 +20,16 @@ class LojaController extends AbstractActionController
         $this->produto     = $produto;
         $this->venda       = $venda;
 
+    }
+
+    public function indexAction()
+    {
+        return new ViewModel([
+            'pessoa'       => $this->table->getAll(),
+            'funcionario'  => $this->table->getAll(),
+            'cliente'      => $this->table->getAll(), 
+            'produto'      => $this->table->getAll(),
+            'venda'        => $this->table->getAll(),
+        ]);
     }
 }

@@ -21,7 +21,7 @@ class ClienteTable{
     public function getCliente($id_cliente){
 
         $id_cliente     = (int) $id_cliente;
-        $rowset = this->tableGateway->select(['ID_CLIENTE' => $id_cliente]);
+        $rowset = $this->tableGateway->select(['ID_CLIENTE' => $id_cliente]);
         $row    = $rowset->current();
 
         if(! $row){
@@ -38,9 +38,9 @@ class ClienteTable{
     public function saveCliente(Cliente $cliente){
         
         $data = [
-            'ID_CLIENTE' => $cliente->getId_cliente();
-            'LOGIN'      => $cliente->getLogin();
-            'SENHA'      => $cliente->getSenha();
+            'ID_CLIENTE' => $cliente->getId_cliente(),
+            'LOGIN'      => $cliente->getLogin(),
+            'SENHA'      => $cliente->getSenha(),
         ];
 
         $id_cliente = (int) $cliente->getId_cliente();

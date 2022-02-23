@@ -1,6 +1,6 @@
 <?php
 
-use namespace Loja\Model;
+namespace Loja\Model;
 
 use RuntimeException;
 use Laminas\Db\TableGateway\TableGatewayInterface;
@@ -37,13 +37,13 @@ class ProdutoTable
     public function saveProduto(Produto $produto)
     {
         $data = [
-            'ID_PRODUTO'  => $produto->getId_produto();
-            'NOME'        => $produto->getNome();
-            'IMAGEM'      => $produto->getImagem();
-            'VALIDADE'    => $produto->getValidade();
-            'QTD_ESTOQUE' => $produto->getQtd_estoque();
-            'CUSTO'       => $produto->getCusto();
-            'PRECO'       => $produto->getPreco();    
+            'ID_PRODUTO'  => $produto->getId_produto(),
+            'NOME'        => $produto->getNome(),
+            'IMAGEM'      => $produto->getImagem(),
+            'VALIDADE'    => $produto->getValidade(),
+            'QTD_ESTOQUE' => $produto->getQtd_estoque(),
+            'CUSTO'       => $produto->getCusto(),
+            'PRECO'       => $produto->getPreco(),    
         ];
 
         $id_produto = (int) $produto->getId_produto();

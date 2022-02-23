@@ -37,14 +37,14 @@ class PessoaTable
     public function savePessoa(Pessoa $pessoa)
     {
         $data = [
-            'ID_PESSOA' =>  $pessoa->getId_pessoa();
-            'CPF'       =>  $pessoa->getCpf();
-            'NOME'      =>  $pessoa->getNome();
-            'TELEFONE'  =>  $pessoa->getTelefone();
-            'EMAIL'     =>  $pessoa->getEmail();
-            'CIDADE'    =>  $pessoa->getCidade();
-            'BAIRRO'    =>  $pessoa->getBairro();
-            'RUA'       =>  $pessoa->getRua();
+            'ID_PESSOA' =>  $pessoa->getId_pessoa(),
+            'CPF'       =>  $pessoa->getCpf(),
+            'NOME'      =>  $pessoa->getNome(),
+            'TELEFONE'  =>  $pessoa->getTelefone(),
+            'EMAIL'     =>  $pessoa->getEmail(),
+            'CIDADE'    =>  $pessoa->getCidade(),
+            'BAIRRO'    =>  $pessoa->getBairro(),
+            'RUA'       =>  $pessoa->getRua(),
         ];
 
         $id_pessoa = (int) $pessoa->getId_pessoa();

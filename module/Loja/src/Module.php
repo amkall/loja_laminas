@@ -26,6 +26,46 @@ class Module implements ConfigProviderInterface{
                     $resultSetPrototype->setArrayObjectPrototype(new Model\Pessoa());
                     return new TableGateway('pessoa', $dbAdapter, null, $resultSetPrototype);
                 },
+                FuncionarioTable::class => function($container) {
+                    $tableGateway = $container->get(FuncionarioTableGateway::class);
+                    return new FuncionarioTable($tableGateway);
+                },
+                FuncionarioTableGateway::class => function ($container) {
+                    $dbAdapter = $container->get(AdapterInterface::class);
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Model\Funcionario());
+                    return new TableGateway('funcionario', $dbAdapter, null, $resultSetPrototype);
+                },
+                ClienteTable::class => function($container) {
+                    $tableGateway = $container->get(ClienteTableGateway::class);
+                    return new ClienteTable($tableGateway);
+                },
+                ClienteTableGateway::class => function ($container) {
+                    $dbAdapter = $container->get(AdapterInterface::class);
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Model\Cliente());
+                    return new TableGateway('cliente', $dbAdapter, null, $resultSetPrototype);
+                },
+                ProdutoTable::class => function($container) {
+                    $tableGateway = $container->get(ProdutoTableGateway::class);
+                    return new ProdutoTable($tableGateway);
+                },
+                ProdutoTableGateway::class => function ($container) {
+                    $dbAdapter = $container->get(AdapterInterface::class);
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Model\Produto());
+                    return new TableGateway('produto', $dbAdapter, null, $resultSetPrototype);
+                },
+                VendaTable::class => function($container) {
+                    $tableGateway = $container->get(VendaTableGateway::class);
+                    return new VendaTable($tableGateway);
+                },
+                VendaTableGateway::class => function ($container) {
+                    $dbAdapter = $container->get(AdapterInterface::class);
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Model\Venda());
+                    return new TableGateway('venda', $dbAdapter, null, $resultSetPrototype);
+                },
             ],
         ];
     }
