@@ -4,6 +4,12 @@ namespace Loja\Controller;
 use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\View\Model\ViewModel;
 
+use Loja\Model\PessoaTable;
+use Loja\Model\FuncionarioTable;
+use Loja\Model\ClienteTable;
+use Loja\Model\ProdutoTable;
+use Loja\Model\VendaTable;
+
 class LojaController extends AbstractActionController
 {
     private $pessoa;
@@ -12,7 +18,8 @@ class LojaController extends AbstractActionController
     private $produto;
     private $venda;
 
-    public function __construct(PessoaTable $pessoa, FuncionarioTable $funcionario, ClienteTable $cliente, ProdutoTable $produto, VendaTable $venda){
+    public function __construct(PessoaTable $pessoa, FuncionarioTable $funcionario, ClienteTable $cliente, ProdutoTable $produto, VendaTable $venda)
+    {
 
         $this->pessoa      = $pessoa;
         $this->funcionario = $funcionario;

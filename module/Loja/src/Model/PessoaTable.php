@@ -1,6 +1,6 @@
 <?php
 
-use namespace Loja\Model;
+namespace Loja\Model;
 
 use RuntimeException;
 use Laminas\Db\TableGateway\TableGatewayInterface;

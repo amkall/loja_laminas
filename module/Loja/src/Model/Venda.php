@@ -1,9 +1,8 @@
 <?php
 
-use namespace Loja\Model;
+namespace Loja\Model;
 
 class Venda{
-    ]
     private $id_venda;
     private $id_clinte;
     private $id_produto;

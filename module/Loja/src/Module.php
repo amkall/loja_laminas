@@ -6,6 +6,7 @@ use Laminas\Db\Adapter\AdapterInterface;
 use Laminas\Db\ResultSet\ResultSet;
 use Laminas\Db\TableGateway\TableGateway;
 use Laminas\ModuleManager\Feature\ConfigProviderInterface;
+use MyObject\Factorie;
 
 class Module implements ConfigProviderInterface{
     public function getConfig(){
@@ -16,51 +17,51 @@ class Module implements ConfigProviderInterface{
     {
         return [
             'factories' => [
-                PessoaTable::class => function($container) {
-                    $tableGateway = $container->get(PessoaTableGateway::class);
-                    return new PessoaTable($tableGateway);
+                Model\PessoaTable::class => function($container) {
+                    $tableGateway = $container->get(Model\PessoaTableGateway::class);
+                    return new Model\PessoaTable($tableGateway);
                 },
-                PessoaTableGateway::class => function ($container) {
+                Model\PessoaTableGateway::class => function ($container) {
                     $dbAdapter = $container->get(AdapterInterface::class);
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Model\Pessoa());
                     return new TableGateway('pessoa', $dbAdapter, null, $resultSetPrototype);
                 },
-                FuncionarioTable::class => function($container) {
-                    $tableGateway = $container->get(FuncionarioTableGateway::class);
-                    return new FuncionarioTable($tableGateway);
+                Model\FuncionarioTable::class => function($container) {
+                    $tableGateway = $container->get(Model\FuncionarioTableGateway::class);
+                    return new Model\FuncionarioTable($tableGateway);
                 },
-                FuncionarioTableGateway::class => function ($container) {
+                Model\FuncionarioTableGateway::class => function ($container) {
                     $dbAdapter = $container->get(AdapterInterface::class);
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Model\Funcionario());
                     return new TableGateway('funcionario', $dbAdapter, null, $resultSetPrototype);
                 },
-                ClienteTable::class => function($container) {
-                    $tableGateway = $container->get(ClienteTableGateway::class);
-                    return new ClienteTable($tableGateway);
+                Model\ClienteTable::class => function($container) {
+                    $tableGateway = $container->get(Model\ClienteTableGateway::class);
+                    return new Model\ClienteTable($tableGateway);
                 },
-                ClienteTableGateway::class => function ($container) {
+                Model\ClienteTableGateway::class => function ($container) {
                     $dbAdapter = $container->get(AdapterInterface::class);
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Model\Cliente());
                     return new TableGateway('cliente', $dbAdapter, null, $resultSetPrototype);
                 },
-                ProdutoTable::class => function($container) {
-                    $tableGateway = $container->get(ProdutoTableGateway::class);
-                    return new ProdutoTable($tableGateway);
+                Model\ProdutoTable::class => function($container) {
+                    $tableGateway = $container->get(Model\ProdutoTableGateway::class);
+                    return new Model\ProdutoTable($tableGateway);
                 },
-                ProdutoTableGateway::class => function ($container) {
+                Model\ProdutoTableGateway::class => function ($container) {
                     $dbAdapter = $container->get(AdapterInterface::class);
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Model\Produto());
                     return new TableGateway('produto', $dbAdapter, null, $resultSetPrototype);
                 },
-                VendaTable::class => function($container) {
-                    $tableGateway = $container->get(VendaTableGateway::class);
-                    return new VendaTable($tableGateway);
+                Model\VendaTable::class => function($container) {
+                    $tableGateway = $container->get(Model\VendaTableGateway::class);
+                    return new Model\VendaTable($tableGateway);
                 },
-                VendaTableGateway::class => function ($container) {
+                Model\VendaTableGateway::class => function ($container) {
                     $dbAdapter = $container->get(AdapterInterface::class);
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Model\Venda());
@@ -76,8 +77,8 @@ class Module implements ConfigProviderInterface{
            'factories' => [
                Controller\LojaController::class => function($container) {
                    return new Controller\LojaController(
-                       $container->get(PessoaTable::class), $container->get(FuncionarioTable::class), $container->get(ClienteTable::class,
-                       $container->get(ProdutoTable::class), $container->get(VendaTable::class))
+                       $container->get(Model\PessoaTable::class), $container->get(Model\FuncionarioTable::class), $container->get(Model\ClienteTable::class),
+                       $container->get(Model\ProdutoTable::class), $container->get(Model\VendaTable::class)
                    );
                },
            ],
