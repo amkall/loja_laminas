@@ -18,25 +18,18 @@ class LojaController extends AbstractActionController
     private $produto;
     private $venda;
 
-    public function __construct(PessoaTable $pessoa, FuncionarioTable $funcionario, ClienteTable $cliente, ProdutoTable $produto, VendaTable $venda)
+    public function __construct(PessoaTable $pessoa)
     {
 
-        $this->pessoa      = $pessoa;
-        $this->funcionario = $funcionario;
-        $this->cliente     = $cliente;
-        $this->produto     = $produto;
-        $this->venda       = $venda;
+        $this->pessoa = $pessoa;
+
 
     }
 
     public function indexAction()
     {
         return new ViewModel([
-            'pessoa'       => $this->table->getAll(),
-            'funcionario'  => $this->table->getAll(),
-            'cliente'      => $this->table->getAll(), 
-            'produto'      => $this->table->getAll(),
-            'venda'        => $this->table->getAll(),
+            'pessoas' => $this->pessoa->getAll()
         ]);
     }
 }

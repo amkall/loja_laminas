@@ -2,15 +2,9 @@
 
 namespace Loja;
 use Laminas\Router\Http\Segment;
-use Laminas\ServiceManager\Factory\InvokableFactory;
+
 
 return [
-    'controllers' => [
-        'factories' => [
-            Controller\LojaController::class => InvokableFactory::class,
-        ],
-    ],
-
      // The following section is new and should be added to your file:
      'router' => [
         'routes' => [

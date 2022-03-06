@@ -14,7 +14,7 @@ class PessoaTable
         $this->tableGateway = $tableGateway;
     }
 
-    public function gethAll()
+    public function getAll()
     {
         return $this->tableGateway->select();
     }
