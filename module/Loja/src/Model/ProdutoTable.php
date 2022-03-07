@@ -40,10 +40,12 @@ class ProdutoTable
             'ID_PRODUTO'  => $produto->getId_produto(),
             'NOME'        => $produto->getNome(),
             'IMAGEM'      => $produto->getImagem(),
+            'CATEGORIA'   => $produto->getCategoria(),
             'VALIDADE'    => $produto->getValidade(),
             'QTD_ESTOQUE' => $produto->getQtd_estoque(),
             'CUSTO'       => $produto->getCusto(),
-            'PRECO'       => $produto->getPreco(),    
+            'PRECO'       => $produto->getPreco(), 
+            
         ];
 
         $id_produto = (int) $produto->getId_produto();

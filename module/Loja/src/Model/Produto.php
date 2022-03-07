@@ -10,6 +10,7 @@ class Produto {
     private $qtd_estoque;
     private $custo;
     private $preco;
+    private $categoria;
 
     public function exchangeArray(array $data){
 
@@ -21,7 +22,10 @@ class Produto {
        
         $this->qtd_estoque = !empty($data['QTD_ESTOQUE']) ? $data['QTD_ESTOQUE'] : null;
         $this->custo       = !empty($data['CUSTO'])       ? $data['CUSTO']       : null;
+
         $this->preco       = !empty($data['PRECO'])       ? $data['PRECO']       : null;
+        $this->categoria   = !empty($data['CATEGORIA'])   ? $data['CATEGORIA']   : null;
+        
     }
 
     public function getId_produto(){
@@ -71,4 +75,24 @@ class Produto {
     }
     public function setPreco($preco){
         $this->preco = $preco;
+    }
+    /**
+     * Get the value of categoria
+     */ 
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+
+    /**
+     * Set the value of categoria
+     *
+     * @return  self
+     */ 
+    public function setCategoria($categoria)
+    {
+        $this->categoria = $categoria;
+
+        return $this;
+    }
 }

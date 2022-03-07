@@ -12,24 +12,30 @@ use Loja\Model\VendaTable;
 
 class LojaController extends AbstractActionController
 {
-    private $pessoa;
-    private $funcionario;
     private $cliente;
+    private $funcionario;
+    private $pessoa;
     private $produto;
     private $venda;
 
-    public function __construct(PessoaTable $pessoa)
+    public function __construct(ClienteTable $cliente, FuncionarioTable $funcionario, PessoaTable $pessoa,
+                                 ProdutoTable $produto, VendaTable $venda)
     {
-
-        $this->pessoa = $pessoa;
-
-
+        $this->cliente     = $cliente;
+        $this->funcionario = $funcionario;
+        $this->pessoa      = $pessoa;
+        $this->produto     = $produto;
+        $this->venda       = $venda;
     }
 
     public function indexAction()
     {
         return new ViewModel([
-            'pessoas' => $this->pessoa->getAll()
+            'clientes'     => $this->cliente->getAll(),
+            'funcionarios' => $this->funcionario->getAll(),
+            'pessoas'      => $this->pessoa->getAll(),
+            'produtos'     => $this->produto->getAll(), 
+            'venda'        => $this->venda->getAll(),
         ]);
     }
 

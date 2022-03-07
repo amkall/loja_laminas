@@ -17,7 +17,31 @@ class Module implements ConfigProviderInterface{
     {
         return [
             'factories' => [
-                Model\PessoaTable::class => function($container) {
+
+                //Cliente
+                Model\ClienteTable::class => function($container) {
+                    $tableGateway = $container->get(Model\ClienteTableGateway::class);
+                    return new Model\ClienteTable($tableGateway);
+                },
+                Model\ClienteTableGateway::class => function ($container) {
+                    $dbAdapter = $container->get(AdapterInterface::class);
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Model\Cliente());
+                    return new TableGateway('cliente', $dbAdapter, null, $resultSetPrototype);
+                },
+                //Funcionario
+                Model\FuncionarioTable::class => function($container) {
+                    $tableGateway = $container->get(Model\FuncionarioTableGateway::class);
+                    return new Model\FuncionarioTable($tableGateway);
+                },
+                Model\FuncionarioTableGateway::class => function ($container) {
+                    $dbAdapter = $container->get(AdapterInterface::class);
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Model\Funcionario());
+                    return new TableGateway('funcionario', $dbAdapter, null, $resultSetPrototype);
+                },
+                 //Pessoa
+                 Model\PessoaTable::class => function($container) {
                     $tableGateway = $container->get(Model\PessoaTableGateway::class);
                     return new Model\PessoaTable($tableGateway);
                 },
@@ -26,6 +50,28 @@ class Module implements ConfigProviderInterface{
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Model\Pessoa());
                     return new TableGateway('pessoa', $dbAdapter, null, $resultSetPrototype);
+                },
+                //Produto
+                Model\ProdutoTable::class => function($container) {
+                    $tableGateway = $container->get(Model\ProdutoTableGateway::class);
+                    return new Model\ProdutoTable($tableGateway);
+                },
+                Model\ProdutoTableGateway::class => function ($container) {
+                    $dbAdapter = $container->get(AdapterInterface::class);
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Model\Produto());
+                    return new TableGateway('produto', $dbAdapter, null, $resultSetPrototype);
+                },
+                //Venda
+                Model\VendaTable::class => function($container) {
+                    $tableGateway = $container->get(Model\VendaTableGateway::class);
+                    return new Model\VendaTable($tableGateway);
+                },
+                Model\VendaTableGateway::class => function ($container) {
+                    $dbAdapter = $container->get(AdapterInterface::class);
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Model\Venda());
+                    return new TableGateway('venda', $dbAdapter, null, $resultSetPrototype);
                 },
             ],
         ];
@@ -37,7 +83,8 @@ class Module implements ConfigProviderInterface{
            'factories' => [
                Controller\LojaController::class => function($container) {
                    return new Controller\LojaController(
-                     $container->get(Model\PessoaTable::class)
+                     $container->get(Model\ClienteTable::class), $container->get(Model\FuncionarioTable::class), $container->get(Model\PessoaTable::class), 
+                     $container->get(Model\ProdutoTable::class), $container->get(Model\VendaTable::class)
                    );
                },
            ],
