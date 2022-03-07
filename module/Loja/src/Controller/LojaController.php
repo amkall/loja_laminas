@@ -32,4 +32,8 @@ class LojaController extends AbstractActionController
             'pessoas' => $this->pessoa->getAll()
         ]);
     }
+
+    public function addAction(){
+        
+    }
 }

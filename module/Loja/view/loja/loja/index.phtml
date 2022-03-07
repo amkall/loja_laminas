@@ -1,27 +1,27 @@
 <?php
-// module/pessoa/view/pessoa/pessoa/index.phtml:
+// module/Album/view/album/album/index.phtml:
 
-$title = 'My pessoas';
+$title = 'My albums';
 $this->headTitle($title);
 ?>
 <h1><?= $this->escapeHtml($title) ?></h1>
 <p>
-    <a href="<?= $this->url('pessoa', ['action' => 'add']) ?>">Add new pessoa</a>
+    <a href="<?= $this->url('loja', ['action' => 'add']) ?>">Add new album</a>
 </p>
 
 <table class="table">
 <tr>
-    <th>Title</th>
-    <th>Artist</th>
+    <th>nome</th>
+    <th>telefone</th>
     <th>&nbsp;</th>
 </tr>
 <?php foreach ($pessoas as $pessoa) : ?>
     <tr>
-        <td><?= $this->escapeHtml($pessoa->title) ?></td>
-        <td><?= $this->escapeHtml($pessoa->artist) ?></td>
+        <td><?= $this->escapeHtml($pessoa->getNome()) ?></td>
+        <td><?= $this->escapeHtml($pessoa->getTelefone()) ?></td>
         <td>
-            <a href="<?= $this->url('pessoa', ['action' => 'edit', 'id' => $pessoa->id]) ?>">Edit</a>
-            <a href="<?= $this->url('pessoa', ['action' => 'delete', 'id' => $pessoa->id]) ?>">Delete</a>
+            <a href="<?= $this->url('loja', ['action' => 'edit', 'id' => $pessoa->getId_pessoa()]) ?>">Edit</a>
+            <a href="<?= $this->url('loja', ['action' => 'delete', 'id' => $pessoa->getId_pessoa()]) ?>">Delete</a>
         </td>
     </tr>
 <?php endforeach; ?>
