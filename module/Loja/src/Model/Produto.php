@@ -1,5 +1,4 @@
 <?php
-
 namespace Loja\Model;
 
 class Produto {
@@ -14,15 +13,15 @@ class Produto {
 
     public function exchangeArray(array $data){
 
-        $this->id_cliente  = !empty($data['id_cliente'])  ? $data['id_cliente']  : null;
-        $this->nome        = !empty($data['nome'])        ? $data['nome']        : null;
+        $this->id_cliente  = !empty($data['ID_PRODUTO'])  ? $data['ID_PRODUTO']  : null;
+        $this->nome        = !empty($data['NOME'])        ? $data['NOME']        : null;
        
-        $this->imagem      = !empty($data['imagem'])      ? $data['imagem']      : null;
-        $this->validade    = !empty($data['validade'])    ? $data['validade']    : null;
+        $this->imagem      = !empty($data['IMAGEM'])      ? $data['IMAGEM']      : null;
+        $this->validade    = !empty($data['VALIDADE'])    ? $data['VALIDADE']    : null;
        
-        $this->qtd_estoque = !empty($data['qtd_estoque']) ? $data['qtd_estoque'] : null;
-        $this->custo       = !empty($data['custo'])       ? $data['custo']       : null;
-        $this->preco       = !empty($data['preco'])       ? $data['preco']       : null;
+        $this->qtd_estoque = !empty($data['QTD_ESTOQUE']) ? $data['QTD_ESTOQUE'] : null;
+        $this->custo       = !empty($data['CUSTO'])       ? $data['CUSTO']       : null;
+        $this->preco       = !empty($data['PRECO'])       ? $data['PRECO']       : null;
     }
 
     public function getId_produto(){

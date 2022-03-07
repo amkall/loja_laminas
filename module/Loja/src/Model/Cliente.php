@@ -10,9 +10,9 @@ class Cliente extends Pessoa{
     public function exchangeArray(array $data){
         super($data);
 
-        $this->id_cliente = !empty($data['id_cliente']) ? $data['id_cliente'] : null;
-        $this->login      = !empty($data['login'])      ? $data['login']      : null;
-        $this->senha      = !empty($data['senha'])      ? $data['senha']      : null;
+        $this->id_cliente = !empty($data['ID_CLIENTE']) ? $data['ID_CLIENTE'] : null;
+        $this->login      = !empty($data['LOGIN'])      ? $data['LOGIN']      : null;
+        $this->senha      = !empty($data['SENHA'])      ? $data['SENHA']      : null;
     }
 
     public function getId_cliente(){

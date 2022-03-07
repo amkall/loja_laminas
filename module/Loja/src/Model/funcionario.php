@@ -13,11 +13,11 @@ class Funcionario extends Pessoa{
     public function exchangeArray(array $data){
         super($data);
 
-        $this->id_funcionario = !empty($data['id_funcionario']) ? $data['id_funcionario'] : null;
-        $this->login          = !empty($data['login'])          ? $data['login']          : null;
-        $this->senha          = !empty($data['senha'])          ? $data['senha']          : null;
-        $this->situacao       = !empty($data['situacao'])       ? $data['situacao']       : null;
-        $this->acesso         = !empty($data['acesso'])         ? $data['acesso']         : null;
+        $this->id_funcionario = !empty($data['ID_FUNCIONARIO']) ? $data['ID_FUNCIONARIO'] : null;
+        $this->login          = !empty($data['LOGIN'])          ? $data['LOGIN']          : null;
+        $this->senha          = !empty($data['SENHA'])          ? $data['SENHA']          : null;
+        $this->situacao       = !empty($data['SITUACAO'])       ? $data['SITUACAO']       : null;
+        $this->acesso         = !empty($data['ACESSO'])         ? $data['ACESSO']         : null;
     }
 
     /**

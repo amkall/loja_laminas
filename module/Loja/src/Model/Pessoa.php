@@ -14,72 +14,179 @@ class Pessoa{
     private $rua;
 
     public function exchangeArray(array $data){
-        $this->id_pessoa = !empty($data['id_pessoa']) ? $data['id_pessoa'] : null;
-        $this->cpf       = !empty($data['cpf'])       ? $data['cpf']       : null;
+        // mesmo nome que consta no banco de dados, levando em consideração se é maiusculo ou minusculo
+        $this->id_pessoa = !empty($data['ID_PESSOA']) ? $data['ID_PESSOA'] : null;
+        $this->cpf       = !empty($data['CPF'])       ? $data['CPF']       : null;
 
-        $this->nome      = !empty($data['nome'])      ? $data['nome']      : null;
-        $this->telefone  = !empty($data['telefone'])  ? $data['telefone']  : null;
+        $this->nome      = !empty($data['NOME'])      ? $data['NOME']      : null;
+        $this->telefone  = !empty($data['TELEFONE'])  ? $data['TELEFONE']  : null;
 
-        $this->email     = !empty($data['email'])     ? $data['email']     : null;
-        $this->cidade    = !empty($data['cidade'])    ? $data['cidade']    : null;
+        $this->email     = !empty($data['EMAIL'])     ? $data['EMAIL']     : null;
+        $this->cidade    = !empty($data['CIDADE'])    ? $data['CIDADE']    : null;
 
-        $this->bairro    = !empty($data['bairro'])    ? $data['bairro']    : null;
-        $this->rua       = !empty($data['rua'])       ? $data['rua']       : null;
+        $this->bairro    = !empty($data['BAIRRO'])    ? $data['BAIRRO']    : null;
+        $this->rua       = !empty($data['RUA'])       ? $data['RUA']       : null;
     }
     
-    public function getId_pessoa(){
+    
+
+    /**
+     * Get the value of id_pessoa
+     */ 
+    public function getId_pessoa()
+    {
         return $this->id_pessoa;
     }
-    public function setId_pessoa($id_pessoa){
+
+    /**
+     * Set the value of id_pessoa
+     *
+     * @return  self
+     */ 
+    public function setId_pessoa($id_pessoa)
+    {
         $this->id_pessoa = $id_pessoa;
+
+        return $this;
     }
 
-    public function getCpf(){
+    /**
+     * Get the value of cpf
+     */ 
+    public function getCpf()
+    {
         return $this->cpf;
     }
-    public function setCpf($cpf){
+
+    /**
+     * Set the value of cpf
+     *
+     * @return  self
+     */ 
+    public function setCpf($cpf)
+    {
         $this->cpf = $cpf;
+
+        return $this;
     }
 
-    public function getNome(){
+    /**
+     * Get the value of nome
+     */ 
+    public function getNome()
+    {
         return $this->nome;
     }
-    public function setNome($nome){
+
+    /**
+     * Set the value of nome
+     *
+     * @return  self
+     */ 
+    public function setNome($nome)
+    {
         $this->nome = $nome;
+
+        return $this;
     }
 
-    public function getTelefone(){
+    /**
+     * Get the value of telefone
+     */ 
+    public function getTelefone()
+    {
         return $this->telefone;
     }
-    public function setTelefone($telefone){
+
+    /**
+     * Set the value of telefone
+     *
+     * @return  self
+     */ 
+    public function setTelefone($telefone)
+    {
         $this->telefone = $telefone;
+
+        return $this;
     }
 
-    public function getEmail(){
+    /**
+     * Get the value of email
+     */ 
+    public function getEmail()
+    {
         return $this->email;
     }
-    public function setEmail($email){
+
+    /**
+     * Set the value of email
+     *
+     * @return  self
+     */ 
+    public function setEmail($email)
+    {
         $this->email = $email;
+
+        return $this;
     }
 
-    public function getCidade(){
+    /**
+     * Get the value of cidade
+     */ 
+    public function getCidade()
+    {
         return $this->cidade;
     }
-    public function setCidade($cidade){
+
+    /**
+     * Set the value of cidade
+     *
+     * @return  self
+     */ 
+    public function setCidade($cidade)
+    {
         $this->cidade = $cidade;
+
+        return $this;
     }
 
-    public function getBairro(){
+    /**
+     * Get the value of bairro
+     */ 
+    public function getBairro()
+    {
         return $this->bairro;
     }
-    public function setBairro($bairro){
+
+    /**
+     * Set the value of bairro
+     *
+     * @return  self
+     */ 
+    public function setBairro($bairro)
+    {
         $this->bairro = $bairro;
+
+        return $this;
     }
 
-    public function getRua(){
+    /**
+     * Get the value of rua
+     */ 
+    public function getRua()
+    {
         return $this->rua;
     }
-    public function setRua($rua){
+
+    /**
+     * Set the value of rua
+     *
+     * @return  self
+     */ 
+    public function setRua($rua)
+    {
         $this->rua = $rua;
+
+        return $this;
     }
 }

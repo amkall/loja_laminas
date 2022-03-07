@@ -10,10 +10,10 @@ class Venda{
 
     public function exchangeArray(array $data){
 
-        $this->id_venda    = !empty($data['id_venda'])    ? $data['id_venda']    : null;
-        $this->id_cliente  = !empty($data['id_cliente'])  ? $data['id_cliente']  : null;
-        $this->id_produto  = !empty($data['id_produto'])  ? $data['id_produto']  : null;
-        $this->data        = !empty($data['data'])        ? $data['data']        : null;
+        $this->id_venda    = !empty($data['ID_VENDA'])    ? $data['ID_VENDA']    : null;
+        $this->id_cliente  = !empty($data['ID_CLIENTE'])  ? $data['ID_CLIENTE']  : null;
+        $this->id_produto  = !empty($data['ID_PRODUTO'])  ? $data['ID_PRODUTO']  : null;
+        $this->data        = !empty($data['DATA'])        ? $data['DATA']        : null;
     }
 
 
