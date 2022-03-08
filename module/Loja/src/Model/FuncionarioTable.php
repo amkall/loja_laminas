@@ -9,10 +9,10 @@ Class FuncionarioTable{
     private $tabeGateway;
 
     public function __construct(TableGatewayInterface $tableGateway){
-        $this->tableGateway = $tableGateaway;
+        $this->tableGateway = $tableGateway;
     }
 
-    public function getAll($id_funcionario){
+    public function getAll(){
 
         return $this->tableGateway->select();
 

@@ -7,10 +7,9 @@ use Laminas\Db\TableGateway\TableGatewayInterface;
 
 class PessoaTable
 {
-    private $tableGateway;
+    private $tabeGateway;
 
-    public function __construct(TableGatewayInterface $tableGateway)
-    {
+    public function __construct(TableGatewayInterface $tableGateway){
         $this->tableGateway = $tableGateway;
     }
 
