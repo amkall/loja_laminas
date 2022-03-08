@@ -1,7 +1,18 @@
 <?php
 namespace Loja\Model;
 
-class Produto {
+// Add the following import statements:
+use DomainException;
+use Laminas\Filter\StringTrim;
+use Laminas\Filter\StripTags;
+use Laminas\Filter\ToInt;
+use Laminas\InputFilter\InputFilter;
+use Laminas\InputFilter\InputFilterAwareInterface;
+use Laminas\InputFilter\InputFilterInterface;
+use Laminas\Validator\StringLength;
+
+class Produto implements InputFilterAwareInterface
+{
 
     private $id_produto;
     private $nome;
@@ -27,6 +38,8 @@ class Produto {
         $this->categoria   = !empty($data['CATEGORIA'])   ? $data['CATEGORIA']   : null;
         
     }
+
+
 
     public function getId_produto(){
         return $this->id_produto;
