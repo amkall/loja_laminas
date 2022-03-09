@@ -23,6 +23,9 @@ class Produto implements InputFilterAwareInterface
     private $preco;
     private $categoria;
 
+    //inputfilter
+    private $inputFilter;
+
     public function exchangeArray(array $data){
 
         $this->id_cliente  = !empty($data['ID_PRODUTO'])  ? $data['ID_PRODUTO']  : null;
@@ -39,7 +42,94 @@ class Produto implements InputFilterAwareInterface
         
     }
 
+    public function setInputFilter(InputFilterInterface $inputFilter)
+    {
+        throw new DomainException(sprintf(
+            '%s does not allow injection of an alternate input filter',
+            __CLASS__
+        ));
+    }
+    
+    public function getInputFilter()
+    {
+        if ($this->inputFilter){
+            return $this->inputFilter;
+        }
+        $inputFilter = new inputFilter();
+        
+        //filter       -> https://docs.laminas.dev/laminas-inputfilter/specs/
+        //validators   -> https://docs.laminas.dev/laminas-validator/
+        //para verificação dos filtros e validações que podem ser aplicadas
 
+
+        inputFilter->add([
+            'name'           =>  'id_produto',
+            'requeriment'    =>   true, 
+            'filters'        =>   [
+                ['name' =>  ToInt::class],
+            ],
+        ]);
+        inputFilter->add([
+            'name'           =>  'nome',
+            'required'       =>   true, 
+            'filters'        =>   [
+                ['name' =>  StripTags::class],
+                ['name' =>  StringTrim::class],
+            ],
+            'validators' => [
+                [
+                    'name'     => StringLength::class,
+                    'options'  => [
+                        'encoding' => 'UTF-8',
+                        'min'      => 1, 
+                        'max'      => 100,
+                    ],
+                ],
+            ],
+        ]);
+        $inputFilter->add([
+            'name' => 'imagem',
+            'required' => true,
+        ]);
+        $inputFilter->add([
+            'name' => 'validade',
+            'required' => true,
+            'filters' => [],
+            'validators' => [
+                [
+                    'name' => Date::class,
+                    'options' => [
+                        'format'  => 'd-m-y'
+                    ],
+                ],
+            ],
+        ]);
+        inputFilter->add([
+            'name'           =>  'qtd_estoque',
+            'requeriment'    =>   true, 
+            'filters'        =>   [
+                ['name' =>  ToInt::class],
+            ],
+        ]);
+        inputFilter->add([
+            'name'           =>  'custo',
+            'requeriment'    =>   true, 
+            'filters'        =>   [
+                ['name' =>  ToInt::class],
+            ],
+        ]);
+        inputFilter->add([
+            'name'           =>  'preco',
+            'requeriment'    =>   true, 
+            'filters'        =>   [
+                ['name' =>  ToInt::class],
+            ],
+        ]);
+
+
+
+       
+    }
 
     public function getId_produto(){
         return $this->id_produto;
