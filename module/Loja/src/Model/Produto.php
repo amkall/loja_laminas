@@ -94,7 +94,7 @@ class Produto implements InputFilterAwareInterface
         $inputFilter->add([
             'name' => 'validade',
             'required' => true,
-            'filters' => [],
+            'filters'  => [],
             'validators' => [
                 [
                     'name' => Date::class,

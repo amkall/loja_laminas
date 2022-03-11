@@ -10,6 +10,9 @@ use Loja\Model\ClienteTable;
 use Loja\Model\ProdutoTable;
 use Loja\Model\VendaTable;
 
+use Loja\Form\ProdutoForm;
+use Loja\Model\Produto;
+
 class LojaController extends AbstractActionController
 {
     private $cliente;
@@ -40,6 +43,27 @@ class LojaController extends AbstractActionController
     }
 
     public function addAction(){
+        $form = new ProdutoForm();
+        $form->get('submit')->setValue('add');
+
+        $request = $this->getRequest();
+
+        if(! $request->isPost()){
+            return ['form' => $form];
+        }
+
+        $produto = new Produto();
+
+        $form->setInputFilter($produto->getInputFilter());
+        $form->setData($request->getPost());
         
+        if(! $form->isValid()){
+            return ['form' => $form];
+        }
+
+        $produto->exchangeArray($form->getData());
+        $this->produto->saveProduto($produto);
+
+        return $this->redirect()->toRoute('loja');
     }
 }

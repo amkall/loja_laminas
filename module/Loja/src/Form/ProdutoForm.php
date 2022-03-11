@@ -62,6 +62,14 @@ Class ProdutoForm extends Form
                 'label' => 'categoria',
             ]
         ]);
+        $this->add([
+            'name' => 'submit',
+            'type' => 'submit',
+            'attributes' => [
+                'value' => 'Go',
+                'id'    => 'submitbutton',
+            ],
+        ]);
 
     }
 }
