@@ -114,9 +114,11 @@ class Produto implements InputFilterAwareInterface
         inputFilter->add([
             'name'           =>  'custo',
             'requeriment'    =>   true, 
+            /*
             'filters'        =>   [
                 ['name' =>  Tofloat::class],
             ],
+            */
             'validators' => [
                 [
                     'name' => IsFloat::class,
@@ -127,10 +129,15 @@ class Produto implements InputFilterAwareInterface
         ]);
         inputFilter->add([
             'name'           =>  'preco',
-            'requeriment'    =>   true, 
+            'requeriment'    =>   true,
+            /*
+            usar o filtro e o validador para o mesmo tratamento pode causar 
+            redundancia
+
             'filters'        =>   [
                 ['name' =>  Tofloat::class],
             ],
+            */
             'validators' => [
                 [
                     'name'   => IsFloat::class,
