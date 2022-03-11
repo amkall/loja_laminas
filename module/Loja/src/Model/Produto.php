@@ -57,7 +57,7 @@ class Produto implements InputFilterAwareInterface
         }
         $inputFilter = new inputFilter();
         
-        //filter       -> https://docs.laminas.dev/laminas-filter/
+        //filter       -> https://docs.laminas.dev/laminas-inputfilter/specs/
         //validators   -> https://docs.laminas.dev/laminas-validator/
         //para verificação dos filtros e validações que podem ser aplicadas
 
@@ -115,50 +115,18 @@ class Produto implements InputFilterAwareInterface
             'name'           =>  'custo',
             'requeriment'    =>   true, 
             'filters'        =>   [
-                ['name' =>  Tofloat::class],
+                ['name' =>  ToInt::class],
             ],
-            'validators' => [
-                [
-                    'name' => IsFloat::class,
-                    'locale' => 'pt-BR',
-                    ],
-                ],
-            ]
         ]);
         inputFilter->add([
             'name'           =>  'preco',
             'requeriment'    =>   true, 
             'filters'        =>   [
-                ['name' =>  Tofloat::class],
-            ],
-            'validators' => [
-                [
-                    'name'   => IsFloat::class,
-                    'locale' => 'pt-BR',
-                    ],
-                ],
-            ]
-        ]);
-        inputFilter->add([
-            'name'           =>  'categoria',
-            'required'       =>   true, 
-            'filters'        =>   [
-                ['name' =>  StripTags::class],
-                ['name' =>  StringTrim::class],
-            ],
-            'validators' => [
-                [
-                    'name'     => StringLength::class,
-                    'options'  => [
-                        'encoding' => 'UTF-8',
-                        'min'      => 1, 
-                        'max'      => 100,
-                    ],
-                ],
+                ['name' =>  ToInt::class],
             ],
         ]);
 
-
+cccccc
 
        
     }
