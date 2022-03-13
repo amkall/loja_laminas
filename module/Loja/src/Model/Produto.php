@@ -123,9 +123,9 @@ class Produto implements InputFilterAwareInterface
                 [
                     'name' => IsFloat::class,
                     'locale' => 'pt-BR',
-                    ],
+                    
                 ],
-            ]
+            ],
         ]);
         inputFilter->add([
             'name'           =>  'preco',
@@ -142,7 +142,7 @@ class Produto implements InputFilterAwareInterface
                 [
                     'name'   => IsFloat::class,
                     'locale' => 'pt-BR',
-                    ],
+                    
                 ],
             ]
         ]);

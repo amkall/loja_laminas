@@ -1,6 +1,7 @@
 <?php
 
 namespace Loja\Form;
+use Laminas\Form\Form;
 
 Class ProdutoForm extends Form
 {
@@ -20,42 +21,42 @@ Class ProdutoForm extends Form
                 'label' => 'nome',
             ]
         ]);
-        this->add([
+        $this->add([
             'name'    => 'imagem', 
             'type'    => 'image', 
             'options' => [
                 'label' => 'imagem',
             ]
         ]);
-        this->add([
+        $this->add([
             'name'    => 'validade', 
             'type'    => 'date', 
             'options' => [
                 'label' => 'validade',
             ]
         ]);
-        this->add([
+        $this->add([
             'name'    => 'qtd_estoque', 
             'type'    => 'number', 
             'options' => [
                 'label' => 'qtd_estoque',
             ]
         ]);
-        this->add([
+        $this->add([
             'name'    => 'custo', 
             'type'    => 'number', 
             'options' => [
                 'label' => 'custo',
             ]
         ]);
-        this->add([
+        $this->add([
             'name'    => 'preco', 
             'type'    => 'number', 
             'options' => [
                 'label' => 'preco',
             ]
         ]);
-        this->add([
+        $this->add([
             'name'    => 'categoria', 
             'type'    => 'text', 
             'options' => [
