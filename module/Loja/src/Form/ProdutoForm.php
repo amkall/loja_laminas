@@ -24,10 +24,9 @@ Class ProdutoForm extends Form
         ]);
         $this->add([
             'name'    => 'imagem', 
-            'type'    => 'image', 
+            'type'    => 'file', 
             'options' => [
                 'label' => 'imagem',
-                'src'   => 'C:\Users\Bruno Araujo Muniz\Downloads\luffy.jpg',
             ]
         ]);
         
@@ -48,16 +47,25 @@ Class ProdutoForm extends Form
         $this->add([
             'name'    => 'custo', 
             'type'    => 'number', 
-            'options' => [
+            'options'    => [
                 'label' => 'custo',
-            ]
+            ],
+            'attributes' => [
+                'min'  => '0', 
+                'step' => '0.1'
+            ],
         ]);
         $this->add([
             'name'    => 'preco', 
             'type'    => 'number', 
             'options' => [
                 'label' => 'preco',
-            ]
+            ],
+            'attributes' => [
+                'min'  => '0', 
+                'step' => '0.1'
+            ],
+            
         ]);
         $this->add([
             'name'    => 'categoria', 

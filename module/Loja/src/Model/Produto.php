@@ -10,6 +10,9 @@ use Laminas\InputFilter\InputFilter;
 use Laminas\InputFilter\InputFilterAwareInterface;
 use Laminas\InputFilter\InputFilterInterface;
 use Laminas\Validator\StringLength;
+use Laminas\Validator\File\IsImage;
+use Laminas\I18n\Validator\IsFloat;
+use Laminas\Validator\Date;
 
 class Produto implements InputFilterAwareInterface
 {
@@ -88,20 +91,21 @@ class Produto implements InputFilterAwareInterface
             ],
         ]);
         $inputFilter->add([
-            'name' => 'imagem',
+            'name'     => 'imagem',
             'required' => true,
+            'validators' => [
+                [
+                    'name' => IsImage::class,
+                ],
+            ],
         ]);
         
         $inputFilter->add([
             'name' => 'validade',
             'required' => true,
-            'filters'  => [],
             'validators' => [
                 [
                     'name' => Date::class,
-                    'options' => [
-                        'format'  => 'd-m-y'
-                    ],
                 ],
             ],
         ]);
@@ -123,7 +127,7 @@ class Produto implements InputFilterAwareInterface
             'validators' => [
                 [
                     'name' => IsFloat::class,
-                    'locale' => 'pt-BR',
+                    'locale' => 'pt-br',
                     
                 ],
             ],
@@ -142,7 +146,7 @@ class Produto implements InputFilterAwareInterface
             'validators' => [
                 [
                     'name'   => IsFloat::class,
-                    'locale' => 'pt-BR',
+                    'locale' => 'pt-br',
                     
                 ],
             ]
@@ -166,9 +170,8 @@ class Produto implements InputFilterAwareInterface
             ],
         ]);
 
-
-
-       
+        $this->inputFilter = $inputFilter;
+        return $this->inputFilter;
     }
 
     public function getId_produto(){

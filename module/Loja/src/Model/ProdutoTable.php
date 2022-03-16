@@ -37,7 +37,7 @@ class ProdutoTable
     public function saveProduto(Produto $produto)
     {
         $data = [
-            'ID_PRODUTO'  => $produto->getId_produto(),
+        //    'ID_PRODUTO'  => $produto->getId_produto(),
             'NOME'        => $produto->getNome(),
             'IMAGEM'      => $produto->getImagem(),
             'CATEGORIA'   => $produto->getCategoria(),
