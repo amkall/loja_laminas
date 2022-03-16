@@ -62,14 +62,14 @@ class Produto implements InputFilterAwareInterface
         //para verificação dos filtros e validações que podem ser aplicadas
 
 
-        inputFilter->add([
+        $inputFilter->add([
             'name'           =>  'id_produto',
             'requeriment'    =>   true, 
             'filters'        =>   [
                 ['name' =>  ToInt::class],
             ],
         ]);
-        inputFilter->add([
+        $inputFilter->add([
             'name'           =>  'nome',
             'required'       =>   true, 
             'filters'        =>   [
@@ -91,6 +91,7 @@ class Produto implements InputFilterAwareInterface
             'name' => 'imagem',
             'required' => true,
         ]);
+        
         $inputFilter->add([
             'name' => 'validade',
             'required' => true,
@@ -104,14 +105,14 @@ class Produto implements InputFilterAwareInterface
                 ],
             ],
         ]);
-        inputFilter->add([
+        $inputFilter->add([
             'name'           =>  'qtd_estoque',
             'requeriment'    =>   true, 
             'filters'        =>   [
                 ['name' =>  ToInt::class],
             ],
         ]);
-        inputFilter->add([
+        $inputFilter->add([
             'name'           =>  'custo',
             'requeriment'    =>   true, 
             /*
@@ -127,7 +128,7 @@ class Produto implements InputFilterAwareInterface
                 ],
             ],
         ]);
-        inputFilter->add([
+        $inputFilter->add([
             'name'           =>  'preco',
             'requeriment'    =>   true,
             /*
@@ -146,7 +147,7 @@ class Produto implements InputFilterAwareInterface
                 ],
             ]
         ]);
-        inputFilter->add([
+        $inputFilter->add([
             'name'           =>  'categoria',
             'required'       =>   true, 
             'filters'        =>   [

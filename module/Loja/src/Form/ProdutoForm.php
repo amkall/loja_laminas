@@ -2,6 +2,7 @@
 
 namespace Loja\Form;
 use Laminas\Form\Form;
+use Loja\Model;
 
 Class ProdutoForm extends Form
 {
@@ -26,8 +27,10 @@ Class ProdutoForm extends Form
             'type'    => 'image', 
             'options' => [
                 'label' => 'imagem',
+                'src'   => 'C:\Users\Bruno Araujo Muniz\Downloads\luffy.jpg',
             ]
         ]);
+        
         $this->add([
             'name'    => 'validade', 
             'type'    => 'date', 
