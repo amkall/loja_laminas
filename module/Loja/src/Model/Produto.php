@@ -13,6 +13,7 @@ use Laminas\Validator\StringLength;
 use Laminas\Validator\File\IsImage;
 use Laminas\I18n\Validator\IsFloat;
 use Laminas\Validator\Date;
+use Laminas\Validator\File\UploadFile;
 
 class Produto implements InputFilterAwareInterface
 {
@@ -96,6 +97,7 @@ class Produto implements InputFilterAwareInterface
             'validators' => [
                 [
                     'name' => IsImage::class,
+                    'name' => UploadFile::class,
                 ],
             ],
         ]);

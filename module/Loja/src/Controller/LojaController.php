@@ -51,17 +51,40 @@ class LojaController extends AbstractActionController
         if(! $request->isPost()){
             return ['form' => $form];
         }
+        print_r($post);
 
         $produto = new Produto();
 
         $form->setInputFilter($produto->getInputFilter());
-        $form->setData($request->getPost());
+
+        $post = array_merge_recursive(
+            $request->getPost()->toArray(),
+            $request->getFiles()->toArray()
+        );
+
+        $form->setData($post);
         
         if(! $form->isValid()){
             return ['form' => $form];
         }
+        /*
+        Não funciona pois a classe do tutorial não ultiliza encapsulamento,
+        mas aqui ele é ultilizado.
+        //$produto->exchangeArray($form->getData());
+        */
+        $aux = $form->getData();
+        print_r($aux['imagem']);
+        
+        $produto->setNome($aux['nome']);
+        $produto->setImagem($aux['imagem']);
 
-        $produto->exchangeArray($form->getData());
+        $produto->setValidade($aux['validade']);
+        $produto->setQtd_estoque($aux['qtd_estoque']);
+
+        $produto->setCusto($aux['custo']);
+        $produto->setPreco($aux['preco']);
+        $produto->setCategoria($aux['categoria']);
+
         $this->produto->saveProduto($produto);
 
         return $this->redirect()->toRoute('loja');

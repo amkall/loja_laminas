@@ -8,7 +8,7 @@ Class ProdutoForm extends Form
 {
     public function __construct($name = null)
     {
-        parent:: __construct('Produto');
+        parent:: __construct('produto');
     
 
         $this->add([
@@ -19,36 +19,36 @@ Class ProdutoForm extends Form
             'name'    => 'nome', 
             'type'    => 'text', 
             'options' => [
-                'label' => 'nome',
+                'label' => 'Nome',
             ]
         ]);
         $this->add([
             'name'    => 'imagem', 
             'type'    => 'file', 
             'options' => [
-                'label' => 'imagem',
-            ]
+                'label' => 'Imagem',
+            ],
         ]);
         
         $this->add([
             'name'    => 'validade', 
             'type'    => 'date', 
             'options' => [
-                'label' => 'validade',
+                'label' => 'Validade',
             ]
         ]);
         $this->add([
             'name'    => 'qtd_estoque', 
             'type'    => 'number', 
             'options' => [
-                'label' => 'qtd_estoque',
+                'label' => 'Qtd_estoque',
             ]
         ]);
         $this->add([
             'name'    => 'custo', 
             'type'    => 'number', 
             'options'    => [
-                'label' => 'custo',
+                'label' => 'Custo',
             ],
             'attributes' => [
                 'min'  => '0', 
@@ -59,7 +59,7 @@ Class ProdutoForm extends Form
             'name'    => 'preco', 
             'type'    => 'number', 
             'options' => [
-                'label' => 'preco',
+                'label' => 'Preco',
             ],
             'attributes' => [
                 'min'  => '0', 
@@ -71,7 +71,7 @@ Class ProdutoForm extends Form
             'name'    => 'categoria', 
             'type'    => 'text', 
             'options' => [
-                'label' => 'categoria',
+                'label' => 'Categoria',
             ]
         ]);
         $this->add([
