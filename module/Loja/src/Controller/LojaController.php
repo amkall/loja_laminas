@@ -51,7 +51,6 @@ class LojaController extends AbstractActionController
         if(! $request->isPost()){
             return ['form' => $form];
         }
-        print_r($post);
 
         $produto = new Produto();
 
@@ -71,9 +70,10 @@ class LojaController extends AbstractActionController
         Não funciona pois a classe do tutorial não ultiliza encapsulamento,
         mas aqui ele é ultilizado.
         //$produto->exchangeArray($form->getData());
+        kkkkkkkkkkk
         */
         $aux = $form->getData();
-        print_r($aux['imagem']);
+        print_r($aux);
         
         $produto->setNome($aux['nome']);
         $produto->setImagem($aux['imagem']);
