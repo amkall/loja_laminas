@@ -36,7 +36,7 @@ class PessoaTable
     public function savePessoa(Pessoa $pessoa)
     {
         $data = [
-            'ID_PESSOA' =>  $pessoa->getId_pessoa(),
+          //  'ID_PESSOA' =>  $pessoa->getId_pessoa(),
             'CPF'       =>  $pessoa->getCpf(),
             'NOME'      =>  $pessoa->getNome(),
             'TELEFONE'  =>  $pessoa->getTelefone(),
@@ -49,6 +49,7 @@ class PessoaTable
         $id_pessoa = (int) $pessoa->getId_pessoa();
 
         if ($id_pessoa === 0) {
+            $data['ID_PESSOA'] = null;
             $this->tableGateway->insert($data);
             return;
         }

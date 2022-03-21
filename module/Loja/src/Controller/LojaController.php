@@ -72,11 +72,13 @@ class LojaController extends AbstractActionController
         //$produto->exchangeArray($form->getData());
         kkkkkkkkkkk
         */
-        $aux = $form->getData();
-        print_r($aux);
+        $aux   = $form->getData();
+        $image = $aux['imagem'];
+        //print_r($image['tmp_name']);
+        
         
         $produto->setNome($aux['nome']);
-        $produto->setImagem($aux['imagem']);
+        $produto->setImagem($image['tmp_name']);
 
         $produto->setValidade($aux['validade']);
         $produto->setQtd_estoque($aux['qtd_estoque']);
