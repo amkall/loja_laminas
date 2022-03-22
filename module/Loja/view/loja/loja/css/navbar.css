@@ -1,0 +1,31 @@
+.navbar{
+    /* navbag-bg */
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    /* Dark */
+
+    background: #343A40;
+    border-radius: 4px;
+}
+
+h1{
+    position: absolute;
+    left: 19.72%;
+    right: 72.15%;
+    top: 21.65%;
+    bottom: 28.35%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 36px;
+
+    /* /Gray / White */
+
+    color: #FFFFFF;
+}

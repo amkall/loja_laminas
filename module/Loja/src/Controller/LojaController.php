@@ -56,6 +56,7 @@ class LojaController extends AbstractActionController
 
         $form->setInputFilter($produto->getInputFilter());
 
+        //para pegar o post do form e do e file
         $post = array_merge_recursive(
             $request->getPost()->toArray(),
             $request->getFiles()->toArray()
@@ -70,10 +71,11 @@ class LojaController extends AbstractActionController
         Não funciona pois a classe do tutorial não ultiliza encapsulamento,
         mas aqui ele é ultilizado.
         //$produto->exchangeArray($form->getData());
-        kkkkkkkkkkk
         */
         $aux   = $form->getData();
         $image = $aux['imagem'];
+        //para carregar a imagem no banco e preciso mandar apenas onde ela esta salva
+        //no caso, o laminas salva a imagem passada pelo form de forma temporaria em image['tmp_name']
         //print_r($image['tmp_name']);
         
         
